@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { WalletKitProvider, ConnectButton, useWalletKit } from "@mysten/wallet-kit";
-import { TransactionBlock } from "@mysten/sui.js/transactions";
 import { SuiClient } from "@mysten/sui.js/client";
+import { TransactionBlock } from "@mysten/sui.js/transactions";
 import "./index.css";
 
 const PACKAGE_ID = "0x8943ac4651cd4818dfa9ec976a1fa496e6ebe4a80bab3c0bcd5b383eac71a4cd";
@@ -49,7 +49,7 @@ function DApp() {
       let value: number | string | undefined;
       const content = response.data?.content;
       if (content && content.dataType === "moveObject" && "fields" in content) {
-        value = content.fields?.value;
+        value = (response.data?.content as any)?.fields?.value
       }
       setCounterValue(
         typeof value === "string"
@@ -74,7 +74,7 @@ function DApp() {
         arguments: [],
       });
 
-      const result = await signAndExecuteTransactionBlock({ transactionBlock: tx });
+      const result = await signAndExecuteTransactionBlock({ transactionBlock: tx as unknown as any });
       console.log("Counter creat:", result);
 
       await fetchUserCounter(); 
@@ -97,7 +97,7 @@ function DApp() {
         arguments: [tx.object(counterId)],
       });
 
-      await signAndExecuteTransactionBlock({ transactionBlock: tx });
+      await signAndExecuteTransactionBlock({ transactionBlock: tx as unknown as any });
       await fetchCounterValue();
     } catch (error) {
       console.error("Eroare la incrementare:", error);
