@@ -20,7 +20,6 @@ Each user owns their own counter object, stored securely on the Sui testnet.
 - **Vite** for fast development and builds
 - **@mysten/sui.js** for blockchain interaction
 - **@mysten/wallet-kit** for wallet connection
-- **CSS3** for styling and responsive layout
 
 ---
 
@@ -49,7 +48,7 @@ npm run dev
 ## Deployment
 
 This project is live on GitHub Pages:
-[View the DApp]()
+[View the DApp](https://meseriasul19.github.io/Counter-DApp/)
 
 ## Responsive Design
 

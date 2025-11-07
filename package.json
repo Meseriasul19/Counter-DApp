@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Meseriasul19.github.io/sui-counter-dapp",
+  "homepage": "https://meseriasul19.github.io/Counter-DApp/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
